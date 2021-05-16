@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd build
+cmake ..
+#test
+make
+./src/hello_world

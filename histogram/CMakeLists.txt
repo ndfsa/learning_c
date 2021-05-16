@@ -5,6 +5,6 @@ set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_C_STANDARD 90)
 set(CMAKE_C_EXTENSIONS OFF)
 
-project(temperatures)
+project(histogram)
 
 add_subdirectory(src)

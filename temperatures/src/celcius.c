@@ -10,7 +10,7 @@ main()
     step = 20;
 
     celcius = lower;
-    // print header table
+    /* print header table */
     printf("celcius | fahrenheit\n--------------------\n");
 
     while (celcius <= upper)
