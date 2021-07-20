@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "celcius.h"
 
-main()
+void ctof()
 {
     float fahr, celcius;
     int lower, upper, step;

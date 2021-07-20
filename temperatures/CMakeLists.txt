@@ -1,10 +1,7 @@
-cmake_minimum_required(VERSION 3.5)
+add_library(
+  temperatures SHARED
+  src/celcius.c
+  src/fahrenheit.c
+)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
-set(CMAKE_BUILD_TYPE "Debug")
-set(CMAKE_C_STANDARD 90)
-set(CMAKE_C_EXTENSIONS OFF)
-
-project(temperatures)
-
-add_subdirectory(src)
+target_include_directories(temperatures PUBLIC include)

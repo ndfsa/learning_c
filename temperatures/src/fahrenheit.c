@@ -1,8 +1,7 @@
 #include <stdio.h>
+#include "fahrenheit.h"
 
-float tocelcius(float fahr);
-
-main()
+void ftoc()
 {
     /* print fahrenheit-celcius table
      * for fahr = 0, 20, ..., 300 */
