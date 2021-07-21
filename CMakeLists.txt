@@ -15,4 +15,10 @@ project(learning_c)
 
 # include modules directories
 add_subdirectory(temperatures)
+add_subdirectory(hello_world)
+add_subdirectory(input_output)
+
+# test suite
+enable_testing()
 add_subdirectory(test)
+add_test(NAME full_test COMMAND test-all)

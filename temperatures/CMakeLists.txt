@@ -4,4 +4,8 @@ add_library(
   src/fahrenheit.c
 )
 
-target_include_directories(temperatures PUBLIC include)
+target_include_directories(
+  temperatures
+  PUBLIC include
+  PRIVATE src
+)

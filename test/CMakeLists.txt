@@ -1,3 +1,3 @@
-add_executable(test src/test.c)
+add_executable(test-all src/test.c)
 
-target_link_libraries(test temperatures)
+target_link_libraries(test-all temperatures input_output)

@@ -1,1 +1,1 @@
-add_subdirectory(src)
+add_executable(hello src/hello.c)
