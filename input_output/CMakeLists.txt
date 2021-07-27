@@ -1,6 +1,7 @@
 add_library(
   input_output SHARED
-  src/eof_val.c
+  src/eof.c
+  src/blanks.c
 )
 
 target_include_directories(

@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "input_output.h"
+#include "eof.h"
 
 /* Exercise 1-6 */
 /* Exercise 1-7 */

@@ -1,1 +1,2 @@
-void eof_val();
+#include "blanks.h"
+#include "eof.h"
