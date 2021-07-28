@@ -16,7 +16,7 @@ int count_blanks(char s[])
 }
 
 /* Exercise 1-9 */
-void fold_blanks(char s[], char res[])
+void fold_blanks(char s[])
 {
     int i = 0;
     int j = 0;
@@ -31,7 +31,7 @@ void fold_blanks(char s[], char res[])
             else
             {
                 in_space = 0;
-                res[j++] = s[i++];
+                s[j++] = s[i++];
             }
         }
         else
@@ -40,12 +40,13 @@ void fold_blanks(char s[], char res[])
             {
                 in_space = 1;
                 ++i;
-                res[j++] = ' ';
+                s[j++] = ' ';
             }
             else
-                res[j++] = s[i++];
+                s[j++] = s[i++];
         }
     }
+	s[j] = '\0';
 }
 
 char *encode(char s[])

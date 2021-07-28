@@ -14,11 +14,13 @@ set(CMAKE_C_EXTENSIONS OFF)
 project(learning_c)
 
 # include modules directories
-add_subdirectory(temperatures)
-add_subdirectory(hello_world)
-add_subdirectory(input_output)
+add_subdirectory(chapter1)
 
 # test suite
 enable_testing()
+
 add_subdirectory(test)
-add_test(NAME full_test COMMAND test-all)
+
+add_test(NAME test_temperatures COMMAND test_temperatures)
+add_test(NAME test_blanks COMMAND test_blanks)
+add_test(NAME test_eof COMMAND test_eof)

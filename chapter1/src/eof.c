@@ -8,7 +8,7 @@ void eof_val()
     char c;
     while ((c = getchar()) != EOF)
     {
-        printf("%c: %d is not EOF!", c, (int)c);
+        printf("%c: %d is not EOF!\n", c, (int)c);
     }
-    printf("%c: %d is EOF!", c, (int)c);
+    printf("%c: %d is EOF!\n", c, (int)c);
 }
