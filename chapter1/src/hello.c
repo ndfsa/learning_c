@@ -6,5 +6,7 @@ main()
 	printf("hello, world.\n");
 
 	/* Exercise 1-2*/
-	/* printf("\t\c\a\d\n"); */
+	printf("\t\c\a\d\n");
+
+	return 0;
 }
