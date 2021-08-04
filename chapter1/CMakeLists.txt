@@ -8,6 +8,7 @@ add_library(
 	src/fahrenheit.c
 	src/celcius.c
 	src/blanks.c
+	src/histogram.c
 )
 target_include_directories(
 	chapter1

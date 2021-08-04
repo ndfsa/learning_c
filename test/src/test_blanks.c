@@ -9,6 +9,7 @@ main()
 	char s2[50];
 	char s3[50];
 	char s3_res[50];
+	char s4[50];
 
 	strcpy(s1, "hello world from the C programming language	\n");
 	assert(count_blanks(s1) == 8);
@@ -20,6 +21,10 @@ main()
 	strcpy(s3, "select\tthese\b\\things");
 	encode(s3, s3_res);
 	assert(strcmp("select\\tthese\\b\\\\things", s3_res) == 0);
+
+	strcpy(s4, "a	 b cd");
+	word_per_line(s4);
+	assert(strcmp("a\nb\ncd", s4) == 0);
 
 	return 0;
 }
