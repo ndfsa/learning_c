@@ -1,3 +1,3 @@
 void ftoc();
 void rev_ftoc();
-float tocelcius(float fahr);
+float to_celcius(float);

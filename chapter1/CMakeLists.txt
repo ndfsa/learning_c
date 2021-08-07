@@ -9,6 +9,7 @@ add_library(
 	src/celcius.c
 	src/blanks.c
 	src/histogram.c
+	src/strs.c
 )
 target_include_directories(
 	chapter1

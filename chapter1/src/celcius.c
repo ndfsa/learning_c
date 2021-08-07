@@ -4,7 +4,7 @@
 /* Exercise 1-4 */
 void ctof()
 {
-	float fahr, celcius;
+	float celcius;
 	int lower, upper, step;
 
 	lower = 0;
@@ -17,8 +17,12 @@ void ctof()
 
 	while (celcius <= upper)
 	{
-		fahr = 1.8 * celcius + 32.0;
-		printf("%7.3f | %10.3f\n", celcius, fahr);
+		printf("%7.3f | %10.3f\n", celcius, to_fahrenheit((float)celcius));
 		celcius = celcius + step;
 	}
+}
+
+float to_fahrenheit(float celcius)
+{
+	return 1.8 * celcius + 32.0;
 }

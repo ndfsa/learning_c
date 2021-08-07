@@ -12,7 +12,7 @@ void ftoc()
 
     for (fahr = 0; fahr <= 300; fahr = fahr + 20)
     {
-        printf("%10.3f | %7.3f\n", fahr, tocelcius(fahr));
+        printf("%10.3f | %7.3f\n", fahr, to_celcius(fahr));
     }
 }
 
@@ -27,11 +27,12 @@ void rev_ftoc()
 
     for (fahr = 300; fahr <= 0; fahr = fahr - 20)
     {
-        printf("%10.3f | %7.3f\n", fahr, tocelcius(fahr));
+        printf("%10.3f | %7.3f\n", fahr, to_celcius(fahr));
     }
 }
 
-float tocelcius(float fahr)
+/* Exercise 1-15 */
+float to_celcius(float fahr)
 {
     return (5.0 / 9.0) * (fahr - 32.0);
 }
