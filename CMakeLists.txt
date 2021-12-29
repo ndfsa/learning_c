@@ -18,15 +18,3 @@ project(learning_c)
 
 # include modules directories
 add_subdirectory(chapter1)
-
-# test suite
-enable_testing()
-
-add_subdirectory(test)
-
-add_test(NAME test_hello COMMAND hello_world)
-add_test(NAME test_temperatures COMMAND test_temperatures)
-add_test(NAME test_blanks COMMAND test_blanks)
-add_test(NAME test_eof COMMAND test_eof)
-add_test(NAME test_histogram COMMAND test_histogram)
-add_test(NAME test_strs COMMAND test_strs)

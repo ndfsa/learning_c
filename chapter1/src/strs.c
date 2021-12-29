@@ -1,30 +1,55 @@
 #include "strs.h"
 #include <stdio.h>
+#include <string.h>
 
 /* Exercise 1-16 */
 void longest_line(char s[])
 {
-	int i, cont, start, start_max, max;
+	int i, cont, max, start, start_max, len;
 
-	i = 0;
-	cont = 0;
-	max = 0;
-	start = 0;
-	start_max = 0;
-	while (s[i] != '\0')
+	cont = max = start = start_max = 0;
+	len = strlen(s);
+	for (i = 0; i < len; i++)
 	{
-		if (s[i] == '\n' && cont > max)
+		if ((s[i] == '\n' || s[i] == '\0') && cont > max)
 		{
 			max = cont;
+			cont = 0;
+
 			start_max = start;
+			start = i + 1;
+
 			s[i] = '\0';
 		}
-		if (i > 0 && s[i - 1] == '\n')
-			start = i;
-		i++;
+		else
+			cont++;
 	}
-	printf("%s\n", s+start);
+	printf("%s\n", s + start_max);
 }
-void longer_than_80(char[]);
+
+/* Exercise 1-17 */
+void longer_than(char s[], int thresh)
+{
+	int i, cont, start, len;
+
+	cont = start = 0;
+	len = strlen(s);
+	for (i = 0; i < len; i++)
+	{
+		if (s[i] == '\n' || s[i] == '\0')
+		{
+			if (cont >= thresh)
+			{
+				s[i] = '\0';
+				printf("%s\n", s + start);
+			}
+			cont = 0;
+			start = i + 1;
+		}
+		else
+			cont++;
+	}
+}
+
 void rm_tws(char[]);
 void reverse(char[]);

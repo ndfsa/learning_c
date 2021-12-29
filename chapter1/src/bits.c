@@ -7,7 +7,7 @@ void reverse(char s[]);
 
 main()
 {
-    /*printf("The result is: %d\n", setbits(90, 5, 4, 147));*/
+    /* printf("The result is: %d\n", setbits(90, 5, 4, 147)); */
     char res[25];
     int num = 2147483647;
 
