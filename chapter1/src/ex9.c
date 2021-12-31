@@ -7,9 +7,10 @@ main()
 	 * by a single blank.
 	 * */
 	int c;
-	char prev;
+	int prev;
 
 	prev = getchar();
+	printf("%c", prev);
 
 	if (prev == EOF)
 		return 0;
