@@ -1,4 +1,3 @@
-#include "strs.h"
 #include <stdio.h>
 #include <string.h>
 

@@ -1,7 +1,7 @@
 #include <stdio.h>
+#include "utils.h"
 
 #define IS_BLANK(x) (x == ' ' || x == '\t')
-#define ASCII_LIM 128
 #define LIMIT 45
 #define OUT 0
 #define IN 1
@@ -12,11 +12,14 @@ main()
 	 * draw the histogram with the bars horizontal; a vertical orientation is more challenging.
 	 * */
 	int state, i, letters, c;
-	int counter [ASCII_LIM];
+	int counter[LIMIT];
 
 	state = OUT;
 	letters = 0;
 	i = 0;
+
+	for (i = 0; i < LIMIT; ++i)
+		counter[i] = 0;
 
 	while ((c = getchar()) != EOF)
 	{
@@ -36,6 +39,6 @@ main()
 			letters++;
 		++i;
 	}
-	if (letters > 0)
-		++counter[(letters >= LIMIT ? LIMIT - 1 : letters)];
+	/* vhistogram(counter, LIMIT); */
+	histogram(counter, LIMIT);
 }

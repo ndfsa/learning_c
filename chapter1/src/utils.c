@@ -1,55 +1,8 @@
-#include "histogram.h"
+#include "utils.h"
 #include <stdio.h>
 
-#define ASCII_LIM 128
-#define WORD_LIM 50
 #define WIDTH 50.0
 #define HEIGHT 30
-#define OUT 0
-#define IN 1
-
-/* Exercise 1-13 */
-void word_length_count(char s[], int counter[], int limit)
-{
-	int state, i, letters;
-
-	letters = 0;
-	state = OUT;
-	i = 0;
-	while (s[i] != '\0')
-	{
-		if (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-		{
-			state = OUT;
-			if (letters > 0)
-				++counter[(letters >= limit ? limit - 1 : letters)];
-			letters = 0;
-		}
-		else if (state == OUT)
-		{
-			state = IN;
-			letters++;
-		}
-		else if (state == IN)
-			letters++;
-		++i;
-	}
-	if (letters > 0)
-		++counter[(letters >= limit ? limit - 1 : letters)];
-}
-
-/* Exercise 1-14 */
-void frequency_count(char s[], int counter[])
-{
-	int i, j;
-
-	for (i = 0; i < ASCII_LIM; ++i)
-		counter[i] = 0;
-
-	i = 0;
-	while (s[i] != '\0')
-		++counter[s[i++]];
-}
 
 int counter_max(int counter[], int lim)
 {
@@ -83,8 +36,19 @@ void vhistogram(int counter[], int lim)
 	int factor;
 
 	max = counter_max(counter, lim);
+
+	printf("vertical axis scale: %d\n", max);
 	for (i = 0; i < HEIGHT; ++i)
 	{
+		if (i == 0)
+			printf("1.0 ┎ ");
+		else if (i == HEIGHT / 2)
+			printf("0.5 ┠ ");
+		else if (i == HEIGHT - 1)
+			printf("0.0 ┠ ");
+		else
+			printf("    ┃ ");
+
 		for (j = 0; j < lim; ++j)
 			if (counter[j] > 0)
 			{
@@ -97,8 +61,14 @@ void vhistogram(int counter[], int lim)
 	}
 
 	factor = 100;
+	printf("    ┗");
+	for (j = 0; j < lim; ++j)
+		if (counter[j] > 0)
+			printf("━┷");
+	printf("\n");
 	for (i = 0; i < 3; ++i)
 	{
+		printf("      ");
 		for (j = 0; j < lim; ++j)
 			if (counter[j] > 0)
 				printf("%1d ", j % (factor * 10) / factor);
