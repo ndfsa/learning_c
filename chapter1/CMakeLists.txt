@@ -10,3 +10,4 @@ endforeach()
 
 target_link_libraries(ex13 utils)
 target_link_libraries(ex14 utils)
+target_link_libraries(ex16 utils)

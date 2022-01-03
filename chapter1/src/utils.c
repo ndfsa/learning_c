@@ -76,3 +76,28 @@ void vhistogram(int counter[], int lim)
 		factor = factor / 10;
 	}
 }
+
+int getline(char s[], int lim)
+{
+	int c, i;
+
+	i = 0;
+	while ((c = getchar()) != EOF && c != '\n')
+	{
+		if (i < lim - 1)
+			s[i] = c;
+		++i;
+	}
+
+	s[i < lim - 1 ? i : lim - 1] = '\0';
+	return i;
+}
+
+void copy(char from[], char to[])
+{
+	int i;
+
+	i = 0;
+	while ((to[i] = from[i]) != '\0')
+		++i;
+}
