@@ -1,7 +1,6 @@
 #include "ch1utils.h"
 #include <stdio.h>
 
-#define IS_BLANK(x) (x == ' ' || x == '\t')
 #define LIMIT 45
 #define OUT 0
 #define IN 1

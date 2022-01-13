@@ -8,6 +8,8 @@ foreach(ELEMENT ${SOURCES})
     add_executable(${FILENAME} ${ELEMENT})
 endforeach()
 
+target_link_libraries(ex9 ch1utils)
+target_link_libraries(ex12 ch1utils)
 target_link_libraries(ex13 ch1utils)
 target_link_libraries(ex14 ch1utils)
 target_link_libraries(ex16 ch1utils)

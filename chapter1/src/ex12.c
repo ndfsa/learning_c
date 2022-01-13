@@ -1,5 +1,5 @@
+#include "ch1utils.h"
 #include <stdio.h>
-#define IS_BLANK(x) (x == ' ' || x == '\t')
 
 main()
 {
