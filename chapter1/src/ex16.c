@@ -23,6 +23,4 @@ main()
         printf("%s\n", longest);
     else if (max > 0)
         printf("%s...\n", longest);
-
-    return 0;
 }

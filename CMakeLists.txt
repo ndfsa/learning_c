@@ -11,7 +11,7 @@ set(CMAKE_C_STANDARD 90)
 set(CMAKE_C_EXTENSIONS OFF)
 
 # strictly enforce C standard
-set(CMAKE_C_FLAGS "-pedantic")
+set(CMAKE_C_FLAGS "-pedantic -Wpedantic")
 
 # set project name
 project(learning_c)

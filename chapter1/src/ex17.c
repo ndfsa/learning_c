@@ -32,5 +32,4 @@ main()
         }
         ++count;
     }
-    return 0;
 }
