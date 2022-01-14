@@ -5,6 +5,8 @@
 
 main()
 {
+    /* Wirte a program to print a histogram of the frequencies of different characters in its
+     * input. */
     int i, j, c;
     int counter[ASCII_LIM];
 

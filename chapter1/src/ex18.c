@@ -60,7 +60,7 @@ main()
 void clear_buffer(char *buffer)
 {
     int i;
-    for (i = 0; i < LIM; ++i)
+    for (i = 0; i <= LIM; ++i)
     {
         buffer[i] = '\0';
     }
@@ -75,9 +75,8 @@ void flush_buffer(char *buffer)
 int is_empty(char *buffer)
 {
     int i;
-    for (i = 0; i < LIM; ++i) {
+    for (i = 0; i < LIM; ++i)
         if (buffer[i] != '\0')
             return 0;
-    }
     return 1;
 }
