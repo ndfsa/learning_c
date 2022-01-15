@@ -4,7 +4,6 @@
 #define OUT 0
 #define LIM 100
 
-void clear_buffer(char *);
 void flush_buffer(char *);
 int is_empty(char *);
 
@@ -21,7 +20,7 @@ main()
     c = 0;
 
     state = IN;
-    clear_buffer(buffer);
+    clear_buffer(buffer, LIM + 1);
 
     while ((c = getchar()) != EOF)
     {
@@ -37,7 +36,7 @@ main()
         else if (state == OUT)
         {
             if (c == '\n' && !is_empty(buffer))
-                clear_buffer(buffer);
+                clear_buffer(buffer, LIM + 1);
             else
                 flush_buffer(buffer);
 
@@ -57,19 +56,10 @@ main()
     }
 }
 
-void clear_buffer(char *buffer)
-{
-    int i;
-    for (i = 0; i <= LIM; ++i)
-    {
-        buffer[i] = '\0';
-    }
-}
-
 void flush_buffer(char *buffer)
 {
     printf("%s", buffer);
-    clear_buffer(buffer);
+    clear_buffer(buffer, LIM + 1);
 }
 
 int is_empty(char *buffer)

@@ -1,9 +1,6 @@
 #include "ch1utils.h"
 #include <stdio.h>
 
-#define WIDTH 50.0
-#define HEIGHT 30
-
 int counter_max(int counter[], int lim)
 {
     int i, max;
@@ -100,4 +97,32 @@ void copy(char from[], char to[])
     i = 0;
     while ((to[i] = from[i]) != '\0')
         ++i;
+}
+
+void clear_buffer(char *buffer, int lim)
+{
+    int i;
+    for (i = 0; i < lim; ++i)
+    {
+        buffer[i] = '\0';
+    }
+}
+
+void reverse(char s[])
+{
+    int counter;
+    int i;
+    int temp;
+
+    counter = 0;
+
+    while (s[counter] != '\0')
+        counter++;
+
+    --counter;
+    for (i = counter; i * 2 > counter; --i) {
+        temp = s[i];
+        s[i] = s[counter - i];
+        s[counter - i] = temp;
+    }
 }
