@@ -16,8 +16,9 @@ main()
     {
         if (s_state == OUT && c == '"')
         {
+            if (prev != '\'')
+                s_state = IN;
             putchar(c);
-            s_state = IN;
         }
         else if (c == '"')
         {
