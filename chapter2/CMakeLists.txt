@@ -6,3 +6,4 @@ foreach(ELEMENT ${SOURCES})
 endforeach()
 
 target_link_libraries(ex2-3 ch2utils)
+target_link_libraries(ex2-4 ch2utils)
