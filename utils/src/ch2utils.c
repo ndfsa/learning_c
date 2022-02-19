@@ -95,3 +95,14 @@ int setbits(int x, int p, int n, int y)
 
     return (x & ~(m1 << m2)) | ((y & m1) << m2);
 }
+
+int invert(int x, int p, int n)
+{
+    int mask, x_size;
+
+    x_size = bitsize(x);
+    mask = ~(~0 << n) << (x_size - p - n);
+
+    mask &= x;
+    return x ^ mask;
+}
