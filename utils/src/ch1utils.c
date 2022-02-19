@@ -120,7 +120,8 @@ void reverse(char s[])
         counter++;
 
     --counter;
-    for (i = counter; i * 2 > counter; --i) {
+    for (i = counter; i * 2 > counter; --i)
+    {
         temp = s[i];
         s[i] = s[counter - i];
         s[counter - i] = temp;

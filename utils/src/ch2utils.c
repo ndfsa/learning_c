@@ -52,6 +52,46 @@ void squeeze(char s1[], char s2[])
             s1[j++] = s1[i++];
         else
             i++;
-    if (i>0)
+    if (i > 0)
         s1[j] = '\0';
+}
+
+int any(char s1[], char s2[])
+{
+    int len_s1, len_s2, i, j;
+
+    len_s1 = m_strlen(s1);
+    len_s2 = m_strlen(s2);
+
+    for (i = 0; i < len_s1; i++)
+        for (j = 0; j < len_s2; j++)
+            if (s1[i] == s2[j])
+                return i;
+
+    return -1;
+}
+
+int bitsize(int x)
+{
+    int i, mask;
+
+    mask = ~0;
+    i = 0;
+    while (x & mask)
+    {
+        mask = mask << 1;
+        i++;
+    }
+    return i;
+}
+
+int setbits(int x, int p, int n, int y)
+{
+    int m1, m2, x_size;
+
+    x_size = bitsize(x);
+    m1 = ~(~0 << n);
+    m2 = x_size - p - n;
+
+    return (x & ~(m1 << m2)) | ((y & m1) << m2);
 }
