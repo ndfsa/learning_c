@@ -5,3 +5,4 @@ int any(char[], char[]);
 int setbits(int, int, int, int);
 int bitsize(int);
 int invert(int, int, int);
+int rightrot(int, int);

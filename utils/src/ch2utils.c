@@ -79,7 +79,7 @@ int bitsize(int x)
     i = 0;
     while (x & mask)
     {
-        mask = mask << 1;
+        mask <<= 1;
         i++;
     }
     return i;
@@ -105,4 +105,15 @@ int invert(int x, int p, int n)
 
     mask &= x;
     return x ^ mask;
+}
+
+int rightrot(int x, int n)
+{
+    int mask;
+    mask = ~(~0 << n);
+    mask &= x;
+    x >>= n;
+    mask <<= (sizeof(int) * 8 - n);
+
+    return x | mask;
 }
