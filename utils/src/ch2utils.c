@@ -71,7 +71,7 @@ int any(char s1[], char s2[])
     return -1;
 }
 
-int bitsize(int x)
+int bitsize(unsigned int x)
 {
     int i, mask;
 
@@ -85,7 +85,7 @@ int bitsize(int x)
     return i;
 }
 
-int setbits(int x, int p, int n, int y)
+int setbits(unsigned int x, int p, int n, unsigned int y)
 {
     int m1, m2, x_size;
 
@@ -96,7 +96,7 @@ int setbits(int x, int p, int n, int y)
     return (x & ~(m1 << m2)) | ((y & m1) << m2);
 }
 
-int invert(int x, int p, int n)
+int invert(unsigned int x, int p, int n)
 {
     int mask, x_size;
 
@@ -107,7 +107,7 @@ int invert(int x, int p, int n)
     return x ^ mask;
 }
 
-int rightrot(int x, int n)
+int rightrot(unsigned int x, int n)
 {
     int mask;
     mask = ~(~0 << n);
@@ -116,4 +116,16 @@ int rightrot(int x, int n)
     mask <<= (sizeof(int) * 8 - n);
 
     return x | mask;
+}
+
+int bitcount(unsigned int x)
+{
+    int i;
+    i = 0;
+    while (x)
+    {
+        i++;
+        x &= x - 1;
+    }
+    return i;
 }
