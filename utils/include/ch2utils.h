@@ -7,3 +7,4 @@ int bitsize(unsigned int);
 int invert(unsigned int, int, int);
 int rightrot(unsigned int, int);
 int bitcount(unsigned int);
+int lower(int);
