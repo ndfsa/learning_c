@@ -17,3 +17,56 @@ int binsearch(int x, int v[], int n)
     }
     return (x == v[mid]) ? mid : -1;
 }
+void escape(char s[], char t[])
+{
+    int i, j;
+
+    i = j = 0;
+    while (t[i] != '\0')
+    {
+        switch (t[i])
+        {
+        case '\n':
+            s[j++] = '\\';
+            s[j++] = 'n';
+            i++;
+            break;
+        case '\t':
+            s[j++] = '\\';
+            s[j++] = 't';
+            i++;
+            break;
+        default:
+            s[j++] = t[i++];
+            break;
+        }
+    }
+    s[j] = '\0';
+}
+void rescape(char s[], char t[])
+{
+    int i, j;
+
+    i = j = 0;
+    while (t[i] != '\0')
+    {
+        switch (t[i])
+        {
+        case '\\':
+            if (t[++i] == '\0')
+                break;
+            else if (t[i] == 'n')
+                s[j++] = '\n';
+            else if (t[i] == 't')
+                s[j++] = '\t';
+            else
+                s[j++] = t[i];
+            i++;
+            break;
+        default:
+            s[j++] = t[i++];
+            break;
+        }
+    }
+    s[j] = '\0';
+}
