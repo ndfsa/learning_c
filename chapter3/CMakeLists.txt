@@ -7,3 +7,4 @@ endforeach()
 
 target_link_libraries(ex3-1 ch3utils)
 target_link_libraries(ex3-2 ch3utils)
+target_link_libraries(ex3-3 ch3utils)

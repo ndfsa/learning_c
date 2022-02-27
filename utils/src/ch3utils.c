@@ -70,3 +70,17 @@ void rescape(char s[], char t[])
     }
     s[j] = '\0';
 }
+void expand(char s1[], char s2[])
+{
+    int i, j, k;
+    for (i = 0, j = 0; s1[i] != '\0'; i++)
+        if (s1[i] == '-' && i > 0 && IS_ALPHANUMERIC(s1[i - 1]) && IS_ALPHANUMERIC(s1[i + 1]))
+        {
+            for (k = 1; k + s1[i - 1] <= s1[i + 1]; k++, j++)
+                s2[j] = k + s1[i - 1];
+            i++;
+        }
+        else
+            s2[j++] = s1[i];
+    s2[j] = '\0';
+}
