@@ -1,4 +1,5 @@
 #include "ch3utils.h"
+#include "ch1utils.h"
 
 int binsearch(int x, int v[], int n)
 {
@@ -83,4 +84,26 @@ void expand(char s1[], char s2[])
         else
             s2[j++] = s1[i];
     s2[j] = '\0';
+}
+
+void itoa(int num, char buf[])
+{
+    int i = 0;
+    int sign = num & (0x1 << (sizeof(int) * 8 - 1));
+
+    if (sign)
+    {
+        buf[i++] = -(num % 10) + '0';
+        num /= -10;
+    }
+    while (num > 0)
+    {
+        buf[i++] = num % 10 + '0';
+        num /= 10;
+    }
+    if (sign)
+        buf[i++] = '-';
+
+    buf[i++] = '\0';
+    reverse(buf);
 }
