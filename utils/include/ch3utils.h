@@ -5,3 +5,4 @@ int binsearch(int, int[], int);
 void escape(char[], char[]);
 void rescape(char[], char[]);
 void expand(char[], char[]);
+void itob(unsigned int, char[], int);

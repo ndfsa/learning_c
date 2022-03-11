@@ -88,9 +88,10 @@ void expand(char s1[], char s2[])
 
 void itoa(int num, char buf[])
 {
-    int i = 0;
-    int sign = num & (0x1 << (sizeof(int) * 8 - 1));
+    int i, sign;
 
+    i = 0;
+    sign = num & (0x1 << (sizeof(int) * 8 - 1));
     if (sign)
     {
         buf[i++] = -(num % 10) + '0';
@@ -106,4 +107,19 @@ void itoa(int num, char buf[])
 
     buf[i++] = '\0';
     reverse(buf);
+}
+
+void itob(unsigned int n, char s[], int b)
+{
+    int i, temp;
+
+    i = 0;
+    while (n > 0)
+    {
+        temp = n % b;
+        s[i++] = temp + ((temp <= 9) ? '0' : 'A' - 10);
+        n /= b;
+    }
+    s[i] = '\0';
+    reverse(s);
 }
