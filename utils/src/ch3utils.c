@@ -123,3 +123,20 @@ void itob(unsigned int n, char s[], int b)
     s[i] = '\0';
     reverse(s);
 }
+
+void itoa_w(unsigned int n, char s[], int width)
+{
+    int i, temp;
+
+    i = 0;
+    while (n > 0)
+    {
+        temp = n % 10;
+        s[i++] = temp + '0';
+        n /= 10;
+    }
+    while (i < width)
+        s[i++] = '0';
+    s[i] = '\0';
+    reverse(s);
+}

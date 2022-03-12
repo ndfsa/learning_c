@@ -6,3 +6,4 @@ void escape(char[], char[]);
 void rescape(char[], char[]);
 void expand(char[], char[]);
 void itob(unsigned int, char[], int);
+void itoa_w(unsigned int, char[], int);
