@@ -1,6 +1,10 @@
 #include "ch1utils.h"
 #include <stdio.h>
 
+/* sizes for histograms */
+#define WIDTH 50.0
+#define HEIGHT 30
+
 int counter_max(int counter[], int lim)
 {
     int i, max;
@@ -126,8 +130,4 @@ void reverse(char s[])
         s[i] = s[counter - i];
         s[counter - i] = temp;
     }
-}
-void expand(char s1[], char s2[])
-{
-
 }

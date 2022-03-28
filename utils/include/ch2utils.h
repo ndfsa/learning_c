@@ -1,3 +1,6 @@
+#ifndef CH2UTILS_H
+#define CH2UTILS_H
+
 int htoi(char[]);
 int m_strlen(char[]);
 void squeeze(char[], char[]);
@@ -8,3 +11,5 @@ int invert(unsigned int, int, int);
 int rightrot(unsigned int, int);
 int bitcount(unsigned int);
 int lower(int);
+
+#endif
