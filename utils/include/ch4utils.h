@@ -4,6 +4,6 @@
 #define CH4UTILS_H
 
 int strrindex(char[], char[]);
-double atof(char[]);
+double m_atof(char[]);
 
 #endif

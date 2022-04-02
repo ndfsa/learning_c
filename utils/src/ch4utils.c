@@ -22,7 +22,7 @@ int strrindex(char s[], char t[])
     return -1;
 }
 
-double atof(char s[])
+double m_atof(char s[])
 {
     double val, power, exp;
     int i, sign, exp_sign;

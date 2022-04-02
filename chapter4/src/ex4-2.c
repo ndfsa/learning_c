@@ -7,5 +7,5 @@ main()
      * number may be followed by e or E and an optionally signed exponent.
      * */
     char buffer[] = "123.45e-6";
-    printf("%e\n", atof(buffer));
+    printf("%e\n", m_atof(buffer));
 }

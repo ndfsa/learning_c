@@ -5,3 +5,5 @@ foreach(ELEMENT ${SOURCES})
     add_executable(${FILENAME} ${ELEMENT})
     target_link_libraries(${FILENAME} ch4utils)
 endforeach()
+
+target_link_libraries(ex4-3 m)
