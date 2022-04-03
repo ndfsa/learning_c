@@ -7,3 +7,4 @@ foreach(ELEMENT ${SOURCES})
 endforeach()
 
 target_link_libraries(ex4-3 m)
+target_link_libraries(ex4-4 m)

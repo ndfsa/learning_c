@@ -11,11 +11,11 @@ double pop(void);
 
 main()
 {
-    /* Given the basic framework, it's straightforward to extend the calculator. Add the modulus
-     * (%) operator and provisions for negative numbers.
+    /* Add commands to print the top element of the stack without popping, to duplicate it, and to
+     * swap the top two elements. Add a command to clear the stack.
      * */
     int type;
-    double op2;
+    double op, op2;
     char s[MAXOP];
     while ((type = getop(s)) != EOF)
     {
@@ -47,6 +47,25 @@ main()
                 push(fmod(pop(), op2));
             else
                 printf("error: zero divisor\n");
+            break;
+        case 'P':
+            op = pop();
+            printf("\ttop: %.8g\n", op);
+            push(op);
+            break;
+        case 'S':
+            op = pop();
+            op2 = pop();
+            push(op);
+            push(op2);
+            break;
+        case 'D':
+            op = pop();
+            push(op);
+            push(op);
+            break;
+        case 'C':
+            /* TODO: finish clear stack function */
             break;
         case '\n':
             printf("\t%.8g\n", pop());
