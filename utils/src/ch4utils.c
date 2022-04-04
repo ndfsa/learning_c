@@ -1,23 +1,30 @@
 #include "ch4utils.h"
+#include "ch2utils.h"
+
+int strindex(char s[], char t[])
+{
+    int i, j, k;
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        for (j = i, k = 0; t[k] != '\0' && s[j] == t[k]; j++, k++)
+            ;
+        if (k > 0 && t[k] == '\0')
+            return i;
+    }
+    return -1;
+}
 
 int strrindex(char s[], char t[])
 {
-    int i, j;
-    int start;
-    i = j = 0;
-    start = 0;
-    while (s[i++] != '\0')
+    int i, j, k;
+    int m_size_s = m_strlen(s), m_size_t = m_strlen(t);
+
+    for (i = m_size_s - 1; i >= 0; i--)
     {
-        if (j == 0)
-            start = i;
-        if (t[j] == '\0')
-            return start;
-        if (s[i] != t[j])
-        {
-            j = 0;
-            continue;
-        }
-        j++;
+        for (j = i, k = m_size_t - 1; k >= 0 && s[j] == t[k]; j--, k--)
+            ;
+        if (k == 0 && t[k] == s[i])
+            return i;
     }
     return -1;
 }

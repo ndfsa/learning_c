@@ -6,7 +6,8 @@ main()
     /* Write the function strrindex(s,t), which returns the position of the rightmost occurrence
      * of t in s, or -1 if there is none.
      * */
-    char word[] = "This is a test resistance is futile, get tested.";
-    char pattern[] = "test";
-    printf("%s %d", word, strrindex(word, pattern));
+    char word[] = "aaaaaccaaaaaaccaaaa";
+    char pattern[] = "cc";
+    printf("%s %d\n", word, strrindex(word, pattern));
+    printf("%s %d\n", word, strindex(word, pattern));
 }

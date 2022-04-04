@@ -8,3 +8,5 @@ endforeach()
 
 target_link_libraries(ex4-3 m)
 target_link_libraries(ex4-4 m)
+target_link_libraries(ex4-5 m)
+target_link_libraries(ex4-6 m)

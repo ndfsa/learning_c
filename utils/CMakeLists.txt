@@ -4,6 +4,7 @@ add_library(ch3utils SHARED src/ch3utils.c)
 add_library(ch4utils SHARED src/ch4utils.c)
 
 target_link_libraries(ch3utils ch1utils)
+target_link_libraries(ch4utils ch2utils)
 
 target_include_directories(ch1utils PUBLIC include)
 target_include_directories(ch2utils PUBLIC include)

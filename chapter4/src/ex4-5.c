@@ -1,19 +1,21 @@
+#include "ch4utils.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #define MAXOP 100
 #define NUMBER '0'
+#define FUNC 'f'
 
 int getop(char[]);
 void push(double);
 double pop(void);
 void clear_stack();
+void parse_func(char[]);
 
 main()
 {
-    /* Add commands to print the top element of the stack without popping, to duplicate it, and to
-     * swap the top two elements. Add a command to clear the stack.
+    /* Add access to library functions like sin, exp and pow. See <math.h> in Apendix B, Section 4.
      * */
     int type;
     double op, op2;
@@ -24,6 +26,9 @@ main()
         {
         case NUMBER:
             push(atof(s));
+            break;
+        case FUNC:
+            parse_func(s);
             break;
         case '+':
             push(pop() + pop());
@@ -49,25 +54,6 @@ main()
             else
                 printf("error: zero divisor\n");
             break;
-        case 'P':
-            op = pop();
-            printf("\ttop: %.8g\n", op);
-            push(op);
-            break;
-        case 'W':
-            op = pop();
-            op2 = pop();
-            push(op);
-            push(op2);
-            break;
-        case 'Y':
-            op = pop();
-            push(op);
-            push(op);
-            break;
-        case 'X':
-            clear_stack();
-            break;
         case '\n':
             printf("\t%.8g\n", pop());
             break;
@@ -77,6 +63,61 @@ main()
         }
     }
     return 0;
+}
+
+void parse_func(char s[])
+{
+    double op, op2;
+    if (strindex(s, "SIN") == 0)
+        push(sin(pop()));
+    else if (strindex(s, "COS") == 0)
+        push(cos(pop()));
+    else if (strindex(s, "TAN") == 0)
+        push(tan(pop()));
+    else if (strindex(s, "ASIN") == 0)
+        push(asin(pop()));
+    else if (strindex(s, "ACOS") == 0)
+        push(acos(pop()));
+    else if (strindex(s, "ATAN") == 0)
+        push(atan(pop()));
+    else if (strindex(s, "SINH") == 0)
+        push(sinh(pop()));
+    else if (strindex(s, "COSH") == 0)
+        push(cosh(pop()));
+    else if (strindex(s, "TANH") == 0)
+        push(tanh(pop()));
+    else if (strindex(s, "EXP") == 0)
+        push(exp(pop()));
+    else if (strindex(s, "LOG") == 0)
+        push(log(pop()));
+    else if (strindex(s, "POW") == 0)
+    {
+        op = pop();
+        push(pow(pop(), op));
+    }
+    else if (strindex(s, "PRT") == 0)
+    {
+        op = pop();
+        printf("\ttop: %.8g\n", op);
+        push(op);
+    }
+    else if (strindex(s, "SWP") == 0)
+    {
+        op = pop();
+        op2 = pop();
+        push(op);
+        push(op2);
+    }
+    else if (strindex(s, "DUP") == 0)
+    {
+        op = pop();
+        push(op);
+        push(op);
+    }
+    else if (strindex(s, "CLR") == 0)
+        clear_stack();
+    else
+        printf("error: unknown function %s\n", s);
 }
 
 #define MAXVAL 100
@@ -125,9 +166,18 @@ int getop(char s[])
     while ((s[0] = c = getch()) == ' ' || c == '\t')
         ;
     s[1] = '\0';
-    if (!isdigit(c) && c != '.' && c != '-')
+    if (!isalnum(c) && c != '.' && c != '-')
         return c;
     i = 0;
+    if (isupper(c))
+    {
+        while (isupper(s[++i] = c = getch()))
+            ;
+        s[i] = '\0';
+        if (c != EOF)
+            ungetch(c);
+        return FUNC;
+    }
     if (c == '-')
         s[++i] = c = getch();
     if (isdigit(c))
