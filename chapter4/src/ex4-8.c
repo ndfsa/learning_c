@@ -19,8 +19,8 @@ double variables[28];
 
 main()
 {
-    /* Add commands for handling variables. (It's easy to provide twenty-six variables with
-     * single-letter names.) Add a variable for the most recently printed value.
+    /* Suppose that there will never be more than one character of pushback. Modify getch and
+     * ungetcch accordingly.
      * */
     int type;
     double op, op2;
@@ -226,20 +226,22 @@ int getop(char s[])
         return NUMBER;
 }
 
-#define BUFFSIZE 100
-
-char buf[BUFFSIZE];
-int bufp = 0;
+char buf = -1;
 
 int getch(void)
 {
-    return (bufp > 0) ? buf[--bufp] : getchar();
+    int res = 0;
+    if (buf != -1)
+    {
+        res = buf;
+        buf = -1;
+        return res;
+    }
+    else
+        return getchar();
 }
 
 void ungetch(int c)
 {
-    if (bufp >= BUFFSIZE)
-        printf("ungetch: too many characters\n");
-    else
-        buf[bufp++] = c;
+    buf = c;
 }

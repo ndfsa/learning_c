@@ -19,8 +19,10 @@ double variables[28];
 
 main()
 {
-    /* Add commands for handling variables. (It's easy to provide twenty-six variables with
-     * single-letter names.) Add a variable for the most recently printed value.
+    /* Write a routine ungets(s) that will push back an entire string onto the input. Should ungets
+     * know about buf and bufp, or should it just use ungetch?
+     * A. ungets(s) should only use ungetch, because technically ungetch already handles more than
+     * one character pushback, and in this situation the wheel should not be reinvented.
      * */
     int type;
     double op, op2;
@@ -242,4 +244,18 @@ void ungetch(int c)
         printf("ungetch: too many characters\n");
     else
         buf[bufp++] = c;
+}
+
+void ungets(char s[])
+{
+    int i, c;
+
+    i = 0;
+    while ((c = getchar()) != '\0' && i < BUFFSIZE)
+        i++;
+
+    for (; i >= 0; i--)
+    {
+        ungetch(s[i]);
+    }
 }
