@@ -17,18 +17,15 @@ void parse_func(char[]);
 
 double variables[28];
 
-main()
-{
+main() {
     /* Suppose that there will never be more than one character of pushback. Modify getch and
      * ungetcch accordingly.
      * */
     int type;
     double op, op2;
     char s[MAXOP];
-    while ((type = getop(s)) != EOF)
-    {
-        switch (type)
-        {
+    while ((type = getop(s)) != EOF) {
+        switch (type) {
         case NUMBER:
             push(atof(s));
             break;
@@ -78,8 +75,7 @@ main()
     return 0;
 }
 
-void parse_func(char s[])
-{
+void parse_func(char s[]) {
     double op, op2;
     if (strindex(s, "SIN") == 0)
         push(sin(pop()));
@@ -103,39 +99,29 @@ void parse_func(char s[])
         push(exp(pop()));
     else if (strindex(s, "LOG") == 0)
         push(log(pop()));
-    else if (strindex(s, "POW") == 0)
-    {
+    else if (strindex(s, "POW") == 0) {
         op = pop();
         push(pow(pop(), op));
-    }
-    else if (strindex(s, "PRT") == 0)
-    {
+    } else if (strindex(s, "PRT") == 0) {
         op = pop();
         printf("\ttop: %.8g\n", op);
         push(op);
-    }
-    else if (strindex(s, "SWP") == 0)
-    {
+    } else if (strindex(s, "SWP") == 0) {
         op = pop();
         op2 = pop();
         push(op);
         push(op2);
-    }
-    else if (strindex(s, "DUP") == 0)
-    {
+    } else if (strindex(s, "DUP") == 0) {
         op = pop();
         push(op);
         push(op);
-    }
-    else if (strindex(s, "CLR") == 0)
+    } else if (strindex(s, "CLR") == 0)
         clear_stack();
-    else if (strindex(s, "STO") == 0)
-    {
+    else if (strindex(s, "STO") == 0) {
         int index = (int)pop();
         double val = pop();
         variables[index] = val;
-    }
-    else
+    } else
         printf("error: unknown function %s\n", s);
 }
 
@@ -144,30 +130,25 @@ void parse_func(char s[])
 int sp = 0;
 double val[MAXVAL];
 
-void push(double f)
-{
+void push(double f) {
     if (sp < MAXVAL)
         val[sp++] = f;
     else
         printf("error: stack full, can't push %g\n", f);
 }
 
-double pop(void)
-{
+double pop(void) {
     if (sp > 0)
         return val[--sp];
-    else
-    {
+    else {
         printf("error: stack empty\n");
         return 0.0;
     }
 }
 
-void clear_stack()
-{
+void clear_stack() {
     int i;
-    for (i = 0; i < MAXVAL; ++i)
-    {
+    for (i = 0; i < MAXVAL; ++i) {
         val[i] = 0.0;
     }
     sp = 0;
@@ -178,8 +159,7 @@ void clear_stack()
 int getch(void);
 void ungetch(int);
 
-int getop(char s[])
-{
+int getop(char s[]) {
     int i, c;
 
     while ((s[0] = c = getch()) == ' ' || c == '\t')
@@ -188,8 +168,7 @@ int getop(char s[])
     if (!isalnum(c) && c != '.' && c != '-' && c != '$')
         return c;
     i = 0;
-    if (isupper(c))
-    {
+    if (isupper(c)) {
         while (isupper(s[++i] = c = getch()))
             ;
         s[i] = '\0';
@@ -197,13 +176,11 @@ int getop(char s[])
             ungetch(c);
         return FUNC;
     }
-    if (islower(c))
-    {
+    if (islower(c)) {
         s[i] = c;
         return VAR;
     }
-    if (c == '$')
-    {
+    if (c == '$') {
         if (islower(s[0] = c = getch()) || c == '?')
             return RETRIEVE;
         else
@@ -228,20 +205,14 @@ int getop(char s[])
 
 char buf = -1;
 
-int getch(void)
-{
+int getch(void) {
     int res = 0;
-    if (buf != -1)
-    {
+    if (buf != -1) {
         res = buf;
         buf = -1;
         return res;
-    }
-    else
+    } else
         return getchar();
 }
 
-void ungetch(int c)
-{
-    buf = c;
-}
+void ungetch(int c) { buf = c; }

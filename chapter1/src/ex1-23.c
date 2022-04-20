@@ -2,8 +2,7 @@
 #define IN 1
 #define OUT 0
 
-main()
-{
+main() {
     /* Write a prigram to remove all comments from a C program. Don't forget to handle quoted
      * strings and character constants properly. C comments do not nest.
      * */
@@ -12,24 +11,17 @@ main()
     s_state = OUT;
     c_state = OUT;
 
-    while ((c = getchar()) != EOF)
-    {
-        if (s_state == OUT && c == '"')
-        {
+    while ((c = getchar()) != EOF) {
+        if (s_state == OUT && c == '"') {
             if (prev != '\'')
                 s_state = IN;
             putchar(c);
-        }
-        else if (c == '"')
-        {
+        } else if (c == '"') {
             putchar(c);
             s_state = OUT;
-        }
-        else if (s_state == OUT)
-        {
+        } else if (s_state == OUT) {
             if (c_state == OUT)
-                switch (c)
-                {
+                switch (c) {
                 case '/':
                     break;
                 case '*':
@@ -44,14 +36,11 @@ main()
                     putchar(c);
                     break;
                 }
-            else if (c == '/' && prev == '*')
-            {
+            else if (c == '/' && prev == '*') {
                 c_state = OUT;
                 continue;
             }
-        }
-        else
-        {
+        } else {
             putchar(c);
         }
         prev = c;

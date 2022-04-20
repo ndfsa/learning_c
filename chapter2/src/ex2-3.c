@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "ch2utils.h"
+#include <stdio.h>
 
-main()
-{
+main() {
     printf("%d\n", htoi("0xff"));
     printf("%d\n", htoi("0xaa"));
 }

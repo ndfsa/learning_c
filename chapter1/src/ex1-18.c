@@ -7,8 +7,7 @@
 void flush_buffer(char *);
 int is_empty(char *);
 
-main()
-{
+main() {
     /* Write a program to remove trailing blanks and tabs from each line of input and to delete
      * entirely blank lines.
      * */
@@ -22,19 +21,14 @@ main()
     state = IN;
     clear_buffer(buffer, LIM + 1);
 
-    while ((c = getchar()) != EOF)
-    {
-        if (state == OUT && IS_BLANK(c))
-        {
-            if (p >= LIM)
-            {
+    while ((c = getchar()) != EOF) {
+        if (state == OUT && IS_BLANK(c)) {
+            if (p >= LIM) {
                 flush_buffer(buffer);
                 p = 0;
             }
             buffer[p++] = c;
-        }
-        else if (state == OUT)
-        {
+        } else if (state == OUT) {
             if (c == '\n' && !is_empty(buffer))
                 clear_buffer(buffer, LIM + 1);
             else
@@ -43,27 +37,21 @@ main()
             p = 0;
             state = IN;
             putchar(c);
-        }
-        else if (IS_BLANK(c))
-        {
+        } else if (IS_BLANK(c)) {
             buffer[p++] = c;
             state = OUT;
-        }
-        else
-        {
+        } else {
             putchar(c);
         }
     }
 }
 
-void flush_buffer(char *buffer)
-{
+void flush_buffer(char *buffer) {
     printf("%s", buffer);
     clear_buffer(buffer, LIM + 1);
 }
 
-int is_empty(char *buffer)
-{
+int is_empty(char *buffer) {
     int i;
     for (i = 0; i < LIM; ++i)
         if (buffer[i] != '\0')

@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-main()
-{
+main() {
     /* Write a program to count blanks, tabs and newlines.
      * */
     int c;
@@ -11,8 +10,7 @@ main()
     tab = 0;
     nl = 0;
 
-    while ((c = getchar()) != EOF)
-    {
+    while ((c = getchar()) != EOF) {
         if (c == ' ')
             space++;
         if (c == '\t')

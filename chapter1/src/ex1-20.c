@@ -3,8 +3,7 @@
 #define IN 1
 #define OUT 0
 
-main()
-{
+main() {
     /* Write a program detab that replaces tabs in the input with the propper number of blanks to
      * space to the next tabs stop. Assume a fixed set of tab stop, say every n columns. Should n
      * be a variable or a symbolic parameter?
@@ -14,15 +13,12 @@ main()
     int count, offset;
     int c;
 
-    while ((c = getchar()) != EOF)
-    {
-        if (c == '\t')
-        {
+    while ((c = getchar()) != EOF) {
+        if (c == '\t') {
             offset = DEFAULT_TS - (count % 4);
             printf("%*s", offset, "");
             count += offset;
-        }
-        else
+        } else
             putchar(c);
 
         if (c == '\n')

@@ -5,8 +5,7 @@
 #define WIDTH 50.0
 #define HEIGHT 30
 
-int counter_max(int counter[], int lim)
-{
+int counter_max(int counter[], int lim) {
     int i, max;
 
     max = -1;
@@ -16,14 +15,12 @@ int counter_max(int counter[], int lim)
     return max;
 }
 
-void histogram(int counter[], int lim)
-{
+void histogram(int counter[], int lim) {
     int i, j, max;
 
     max = counter_max(counter, lim);
     for (i = 0; i < lim; ++i)
-        if (counter[i] > 0)
-        {
+        if (counter[i] > 0) {
             printf("%3d: %5d\t", i, counter[i]);
             for (j = 0; j * max < WIDTH * counter[i]; ++j)
                 printf("█");
@@ -31,16 +28,14 @@ void histogram(int counter[], int lim)
         }
 }
 
-void vhistogram(int counter[], int lim)
-{
+void vhistogram(int counter[], int lim) {
     int i, j, max;
     int factor;
 
     max = counter_max(counter, lim);
 
     printf("vertical axis scale: %d\n", max);
-    for (i = 0; i < HEIGHT; ++i)
-    {
+    for (i = 0; i < HEIGHT; ++i) {
         if (i == 0)
             printf("1.0 ┎ ");
         else if (i == HEIGHT / 2)
@@ -51,8 +46,7 @@ void vhistogram(int counter[], int lim)
             printf("    ┃ ");
 
         for (j = 0; j < lim; ++j)
-            if (counter[j] > 0)
-            {
+            if (counter[j] > 0) {
                 if (i * max >= HEIGHT * (max - counter[j]))
                     printf("█ ");
                 else
@@ -67,8 +61,7 @@ void vhistogram(int counter[], int lim)
         if (counter[j] > 0)
             printf("━┷");
     printf("\n");
-    for (i = 0; i < 3; ++i)
-    {
+    for (i = 0; i < 3; ++i) {
         printf("      ");
         for (j = 0; j < lim; ++j)
             if (counter[j] > 0)
@@ -78,13 +71,11 @@ void vhistogram(int counter[], int lim)
     }
 }
 
-int getline(char s[], int lim)
-{
+int getline(char s[], int lim) {
     int c, i;
 
     i = 0;
-    while ((c = getchar()) != EOF && c != '\n')
-    {
+    while ((c = getchar()) != EOF && c != '\n') {
         if (i < lim - 1)
             s[i] = c;
         ++i;
@@ -94,8 +85,7 @@ int getline(char s[], int lim)
     return i;
 }
 
-void copy(char from[], char to[])
-{
+void copy(char from[], char to[]) {
     int i;
 
     i = 0;
@@ -103,17 +93,14 @@ void copy(char from[], char to[])
         ++i;
 }
 
-void clear_buffer(char *buffer, int lim)
-{
+void clear_buffer(char *buffer, int lim) {
     int i;
-    for (i = 0; i < lim; ++i)
-    {
+    for (i = 0; i < lim; ++i) {
         buffer[i] = '\0';
     }
 }
 
-void reverse(char s[])
-{
+void reverse(char s[]) {
     int counter;
     int i;
     int temp;
@@ -124,8 +111,7 @@ void reverse(char s[])
         counter++;
 
     --counter;
-    for (i = counter; i * 2 > counter; --i)
-    {
+    for (i = counter; i * 2 > counter; --i) {
         temp = s[i];
         s[i] = s[counter - i];
         s[counter - i] = temp;

@@ -10,18 +10,15 @@ void push(double);
 double pop(void);
 void clear_stack();
 
-main()
-{
+main() {
     /* Add commands to print the top element of the stack without popping, to duplicate it, and to
      * swap the top two elements. Add a command to clear the stack.
      * */
     int type;
     double op, op2;
     char s[MAXOP];
-    while ((type = getop(s)) != EOF)
-    {
-        switch (type)
-        {
+    while ((type = getop(s)) != EOF) {
+        switch (type) {
         case NUMBER:
             push(atof(s));
             break;
@@ -84,30 +81,25 @@ main()
 int sp = 0;
 double val[MAXVAL];
 
-void push(double f)
-{
+void push(double f) {
     if (sp < MAXVAL)
         val[sp++] = f;
     else
         printf("error: stack full, can't push %g\n", f);
 }
 
-double pop(void)
-{
+double pop(void) {
     if (sp > 0)
         return val[--sp];
-    else
-    {
+    else {
         printf("error: stack empty\n");
         return 0.0;
     }
 }
 
-void clear_stack()
-{
+void clear_stack() {
     int i;
-    for (i = 0; i < MAXVAL; ++i)
-    {
+    for (i = 0; i < MAXVAL; ++i) {
         val[i] = 0.0;
     }
     sp = 0;
@@ -118,8 +110,7 @@ void clear_stack()
 int getch(void);
 void ungetch(int);
 
-int getop(char s[])
-{
+int getop(char s[]) {
     int i, c;
 
     while ((s[0] = c = getch()) == ' ' || c == '\t')
@@ -150,13 +141,9 @@ int getop(char s[])
 char buf[BUFFSIZE];
 int bufp = 0;
 
-int getch(void)
-{
-    return (bufp > 0) ? buf[--bufp] : getchar();
-}
+int getch(void) { return (bufp > 0) ? buf[--bufp] : getchar(); }
 
-void ungetch(int c)
-{
+void ungetch(int c) {
     if (bufp >= BUFFSIZE)
         printf("ungetch: too many characters\n");
     else

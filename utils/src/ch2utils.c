@@ -1,7 +1,6 @@
 #include "ch2utils.h"
 
-int htoi(char s[])
-{
+int htoi(char s[]) {
     int i, res;
 
     if (s[0] == '0' && (s[1] == 'x' || s[1] == 'X'))
@@ -12,8 +11,7 @@ int htoi(char s[])
     res = 0;
     for (; (s[i] >= '0' && s[i] <= '9') || (s[i] >= 'A' && s[i] <= 'F') ||
            (s[i] >= 'a' && s[i] <= 'f');
-         ++i)
-    {
+         ++i) {
         if (s[i] >= '0' && s[i] <= '9')
             res = 16 * res + (s[i] - '0');
         else if (s[i] >= 'A' && s[i] <= 'F')
@@ -24,8 +22,7 @@ int htoi(char s[])
     return res;
 }
 
-int m_strlen(char s[])
-{
+int m_strlen(char s[]) {
     int i;
 
     i = 0;
@@ -34,8 +31,7 @@ int m_strlen(char s[])
     return i - 1;
 }
 
-void squeeze(char s1[], char s2[])
-{
+void squeeze(char s1[], char s2[]) {
     int len_s1, len_s2, i, j;
 
     len_s1 = m_strlen(s1);
@@ -56,8 +52,7 @@ void squeeze(char s1[], char s2[])
         s1[j] = '\0';
 }
 
-int any(char s1[], char s2[])
-{
+int any(char s1[], char s2[]) {
     int len_s1, len_s2, i, j;
 
     len_s1 = m_strlen(s1);
@@ -71,22 +66,19 @@ int any(char s1[], char s2[])
     return -1;
 }
 
-int bitsize(unsigned int x)
-{
+int bitsize(unsigned int x) {
     int i, mask;
 
     mask = ~0;
     i = 0;
-    while (x & mask)
-    {
+    while (x & mask) {
         mask <<= 1;
         i++;
     }
     return i;
 }
 
-int setbits(unsigned int x, int p, int n, unsigned int y)
-{
+int setbits(unsigned int x, int p, int n, unsigned int y) {
     int m1, m2, x_size;
 
     x_size = bitsize(x);
@@ -96,8 +88,7 @@ int setbits(unsigned int x, int p, int n, unsigned int y)
     return (x & ~(m1 << m2)) | ((y & m1) << m2);
 }
 
-int invert(unsigned int x, int p, int n)
-{
+int invert(unsigned int x, int p, int n) {
     int mask, x_size;
 
     x_size = bitsize(x);
@@ -107,8 +98,7 @@ int invert(unsigned int x, int p, int n)
     return x ^ mask;
 }
 
-int rightrot(unsigned int x, int n)
-{
+int rightrot(unsigned int x, int n) {
     int mask;
     mask = ~(~0 << n);
     mask &= x;
@@ -118,19 +108,14 @@ int rightrot(unsigned int x, int n)
     return x | mask;
 }
 
-int bitcount(unsigned int x)
-{
+int bitcount(unsigned int x) {
     int i;
     i = 0;
-    while (x)
-    {
+    while (x) {
         i++;
         x &= x - 1;
     }
     return i;
 }
 
-int lower(int c)
-{
-    return (c >= 'A' && c <= 'Z') ? c + 'a' - 'A' : c;
-}
+int lower(int c) { return (c >= 'A' && c <= 'Z') ? c + 'a' - 'A' : c; }

@@ -3,8 +3,7 @@
 
 #define LIM 1000000
 
-main()
-{
+main() {
     /* Our binary search makes two tests inside the loop, when one would suffice (at the rpice of
      * more tests outside). Write a version with only one test inside the loop and measure the
      * difference in run-time.

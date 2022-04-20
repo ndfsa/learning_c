@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-main()
-{
+main() {
     /* Modify the temperature conversion program to print a heading above in the table.
      * */
 
@@ -16,8 +15,7 @@ main()
 
     fahr = lower;
 
-    while (fahr <= upper)
-    {
+    while (fahr <= upper) {
         celcius = (5.0 / 9.0) * (fahr - 32.0);
         printf("%10.3f | %7.3f\n", fahr, celcius);
         fahr = fahr + step;

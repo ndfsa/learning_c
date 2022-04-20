@@ -3,8 +3,7 @@
 
 #define LIM 100
 
-main()
-{
+main() {
     /* Write a function reverse(s) that reverses the character string s. Use it to write a program
      * that reverses its input a line at a time.
      * */
@@ -15,22 +14,17 @@ main()
     clear_buffer(buffer, LIM);
     p = 0;
 
-    while ((c = getchar()) != EOF)
-    {
-        if (p < LIM - 1 && c == '\n')
-        {
+    while ((c = getchar()) != EOF) {
+        if (p < LIM - 1 && c == '\n') {
             reverse(buffer);
             printf("%s\n", buffer);
             p = 0;
             clear_buffer(buffer, LIM);
-        }
-        else if (c == '\n')
-        {
+        } else if (c == '\n') {
             printf("Buffer size exceeded: %d\n", p);
             p = 0;
             clear_buffer(buffer, LIM);
-        }
-        else if (p < LIM - 1)
+        } else if (p < LIM - 1)
             buffer[p++] = c;
     }
 }

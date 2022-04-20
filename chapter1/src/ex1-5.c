@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-main()
-{
+main() {
     /* Modify the temperature conversion program to print the table in reverse order, that is, from
      * 300 degrees to 0.
      * */
@@ -17,8 +16,7 @@ main()
 
     fahr = upper;
 
-    while (fahr >= lower)
-    {
+    while (fahr >= lower) {
         celcius = (5.0 / 9.0) * (fahr - 32.0);
         printf("%10.3f | %7.3f\n", fahr, celcius);
         fahr = fahr - step;

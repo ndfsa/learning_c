@@ -1,7 +1,6 @@
 #include <stdio.h>
 
-main()
-{
+main() {
     /* Write a program to print the corresponding Celsius to Fahrenheit table.
      * */
 
@@ -16,8 +15,7 @@ main()
 
     celsius = lower;
 
-    while (celsius <= upper)
-    {
+    while (celsius <= upper) {
         fahr = 1.8 * celsius + 32.0;
         printf("%7.3f | %10.3f\n", celsius, fahr);
         celsius = celsius + step;

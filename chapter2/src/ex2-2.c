@@ -1,8 +1,7 @@
 #include <stdio.h>
 #define LIM 80
 
-main()
-{
+main() {
     int i, c, lim;
     char s[LIM];
     lim = LIM;

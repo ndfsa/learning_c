@@ -1,8 +1,7 @@
 #include "ch1utils.h"
 #include <stdio.h>
 
-main()
-{
+main() {
     /* Write a program to copy its input to its output, replacing each string of one or more blanks
      * by a single blank.
      * */
@@ -15,8 +14,7 @@ main()
     if (prev == EOF)
         return 0;
 
-    while ((c = getchar()) != EOF)
-    {
+    while ((c = getchar()) != EOF) {
         if (IS_BLANK(prev) && IS_BLANK(c))
             continue;
         prev = c;

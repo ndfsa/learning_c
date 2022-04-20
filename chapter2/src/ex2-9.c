@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "ch2utils.h"
+#include <stdio.h>
 
-main()
-{
+main() {
     /* In a two's complement number system, x &= (x-1) deletes the rightmost 1-bit in x, explain
      * why. Use this observation to write a faster version of bitcount.
      * A. There are two cases for to take into account, first is if the rightmost bit is 1, in

@@ -1,9 +1,8 @@
-#include <stdio.h>
-#include <limits.h>
 #include <float.h>
+#include <limits.h>
+#include <stdio.h>
 
-main()
-{
+main() {
     printf("int: [%d %d]\n", INT_MIN, INT_MAX);
     printf("unsigned int: [%u %u]\n", 0, UINT_MAX);
     printf("short int: [%d %d]\n", SHRT_MIN, SHRT_MAX);
